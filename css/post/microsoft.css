@@ -18,22 +18,22 @@
 /* 三级标题 */
 #post-content h3 {
   padding: 8px;
-  background-color: #5aab00;
+  background-color: #62b900;
   color: #000;
   font-weight: normal !important;
 }
 #post-content h4 {
-  color: rgba(114,192,0,0.65);
+  color: #62b900;
   padding-top: 8px;
   border-top: solid 2px #62b900;
 }
 #post-content h5 {
-  color: #519500;
+  color: #62b900;
   padding-top: 8px;
   border-top: dotted #62b900 2px;
 }
 #post-content h6 {
-  color: #519500;
+  color: #62b900;
   padding-bottom: 8px;
   border-bottom: #62b900 solid 2px;
 }
@@ -54,7 +54,7 @@
 }
 #post-content ul li:not(:has(input[type="checkbox"])):before {
   content: " ";
-  background-color: #519500;
+  background-color: #62b900;
   width: 12px;
   height: 12px;
   border-radius: 20px;
@@ -67,7 +67,7 @@
   background: none;
   width: 6px;
   height: 6px;
-  border: solid 3px #519500;
+  border: solid 3px #62b900;
   border-radius: 20px;
   top: 6px;
   left: -20px;
@@ -78,7 +78,7 @@
   background: none;
   width: 6px;
   height: 6px;
-  border: solid 3px #519500;
+  border: solid 3px #62b900;
   border-radius: 0px;
   top: 9px;
   left: -20px;
@@ -107,7 +107,7 @@
   height: 17px;
   text-align: center;
   line-height: 16px;
-  background: #519500;
+  background: #62b900;
   border-radius: 20px;
   font-size: 14px;
 }
@@ -122,14 +122,14 @@
 #post-content input[type="checkbox"]:checked:before {
   content: '';
   background-color: #fff;
-  background: url("/img/checked.svg") no-repeat center, #519500;
+  background: url("/img/checked.svg") no-repeat center, #62b900;
 }
 #post-content li input::before {
   content: "";
   display: inline-block;
   width: 1.0125rem;
   height: 1.0125rem;
-  border: 1.5px solid #519500;
+  border: 1.5px solid #62b900;
   border-radius: 2.2rem;
   background-color: #fdfdfd;
   margin-left: -1rem;
@@ -179,7 +179,7 @@
 */
 #post-content a {
   text-decoration: underline;
-  text-decoration-color: rgba(90,171,0,0.1);
+  text-decoration-color: #62b900;
   text-decoration-thickness: 2px;
   color: #62b900;
 }
@@ -249,5 +249,5 @@
   color: #fff;
 }
 #post-content table tr:nth-child(2n) {
-  background-color: #5aab00;
+  background-color: #62b900;
 }

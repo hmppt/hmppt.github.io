@@ -112,7 +112,7 @@ color:#2b2b2b;
   left: 0;
   right: 0;
   bottom: 0px;
-  border-bottom: 2px solid rgba(114,192,0,0.65);
+  border-bottom: 2px solid #62b900;
   color: #2b2b2b;
 }
 #post-content h3:before {
@@ -123,7 +123,7 @@ color:#2b2b2b;
   content: '\f58f';
   height: 32px;
   display: block;
-  color: rgba(114,192,0,0.65);
+  color: #62b900;
   margin: auto;
 }
 /* 三级标题修饰 请参考有实例的主题 */
@@ -135,7 +135,7 @@ color:#2b2b2b;
 #post-content h4:before {
   font-family: "Headings";
   content: '\f8cf';
-  color: rgba(114,192,0,0.65);
+  color: #62b900;
   display: inline-block;
   margin-right: 5px;
 }
@@ -222,14 +222,14 @@ color:#2b2b2b;
 #post-content input[type="checkbox"]:checked:before {
   content: '';
   background-color: #fff;
-  background: url("/img/checked.svg") no-repeat center, rgba(114,192,0,0.65);
+  background: url("/img/checked.svg") no-repeat center, #62b900;
 }
 #post-content li input::before {
   content: "";
   display: inline-block;
   width: 1.0125rem;
   height: 1.0125rem;
-  border: 1px solid rgba(114,192,0,0.65);
+  border: 1px solid #62b900;
   border-radius: 0.2rem;
   background-color: #fdfdfd;
   margin-left: -1rem;
@@ -285,14 +285,14 @@ color:#2b2b2b;
 #post-content a {
   color: #62b900;
   font-weight: normal;
-  border-bottom: 1px solid #5aab00;
+  border-bottom: 1px solid #62b900;
 }
 #post-content strong::before {
   content: '「';
 }
 /* 加粗 */
 #post-content strong {
-  color: #519500;
+  color: #62b900;
   font-weight: bold;
 }
 #post-content strong::after {
@@ -301,16 +301,16 @@ color:#2b2b2b;
 /* 斜体 */
 #post-content em {
   font-style: normal;
-  color: #519500;
+  color: #62b900;
   font-weight: bold;
 }
 /* 加粗斜体 */
 #post-content em strong {
-  color: #519500;
+  color: #62b900;
 }
 /* 删除线 */
 #post-content del {
-  color: #519500;
+  color: #62b900;
 }
 /* 分隔线
 * 粗细、样式和颜色
@@ -320,7 +320,7 @@ color:#2b2b2b;
   height: 1px;
   padding: 0;
   border: none;
-  border-top: 2px solid #5aab00;
+  border-top: 2px solid #62b900;
 }
 /* 图片
 * 宽度 width:80%;
@@ -338,8 +338,8 @@ color:#2b2b2b;
 #post-content p code,
 #post-content li code,
 #post-content table code {
-  color: #519500;
-  background: rgba(90,171,0,0.1);
+  color: #62b900;
+  background: #62b900;
   padding: 0 2px;
   border-radius: 2px;
   height: 21px;

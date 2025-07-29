@@ -202,14 +202,14 @@ p {
 #post-content input[type="checkbox"]:checked:before {
   content: '';
   background-color: #fff;
-  background: url("/img/checked.svg") no-repeat center, rgba(114,192,0,0.65);
+  background: url("/img/checked.svg") no-repeat center, #62b900;
 }
 #post-content li input::before {
   content: "";
   display: inline-block;
   width: 1.0125rem;
   height: 1.0125rem;
-  border: 1px solid rgba(114,192,0,0.65);
+  border: 1px solid #62b900;
   border-radius: 0.2rem;
   background-color: #fdfdfd;
   margin-left: -1rem;
