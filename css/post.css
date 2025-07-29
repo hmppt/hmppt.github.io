@@ -575,11 +575,11 @@ body {
   box-shadow: 1px 0 5px rgba(100,100,100,0.4);
 }
 #toc-col {
-  order: 1;
+  order: 3;
   flex: 0 0 300px;
 }
 #share-col {
-  order: 3;
+  order: 1;
   flex: 0 0 50px;
   z-index: 2;
 }
