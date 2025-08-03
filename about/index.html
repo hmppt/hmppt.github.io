@@ -15,7 +15,7 @@
   
   <title>
     
-      archive_a: 2025 
+      About 
       
       
       |
@@ -114,50 +114,74 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="关西之旅">
-        <div class="time-m-d">08-03</div>
-        <div class="title">
-          <a href="/2025/08/03/%E5%85%B3%E8%A5%BF%E4%B9%8B%E6%97%85/">
-            <span>关西之旅</span>
-          </a>
-        </div>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  <!-- 关于页 url形式：https://yoursite/about/ -->
+    <div class="container about-index">
+      <div class="markdown-body">
+        <h2 id="关于这个博客"><a href="#关于这个博客" class="headerlink" title="关于这个博客"></a>关于这个博客</h2><p>欢迎来到我的个人博客！这里是我记录生活、分享想法和技术心得的小天地。</p>
+<h3 id="博客初心"><a href="#博客初心" class="headerlink" title="博客初心"></a>博客初心</h3><p>在这个快节奏的时代，我希望能够通过文字记录下生活中的点点滴滴，无论是技术学习的心得体会，还是日常生活的感悟思考。这个博客不仅是我个人成长的见证，也希望能够与志同道合的朋友们分享交流。</p>
+<h3 id="内容方向"><a href="#内容方向" class="headerlink" title="内容方向"></a>内容方向</h3><p>这里主要会分享：</p>
+<ul>
+<li>📚 <strong>技术笔记</strong> - 编程学习过程中的经验总结</li>
+<li>💭 <strong>生活感悟</strong> - 对生活的思考和感悟</li>
+<li>🌟 <strong>个人成长</strong> - 学习和成长路上的收获</li>
+<li>🎯 <strong>项目分享</strong> - 有趣的项目和创意实现</li>
+</ul>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p>一个热爱学习、喜欢思考的人，相信通过不断的学习和实践可以让生活变得更加精彩。喜欢用文字记录生活，用代码创造价值。</p>
+<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p>如果你对我的博客内容感兴趣，或者想要交流讨论，欢迎通过以下方式联系我：</p>
+<ul>
+<li><del>📧 邮箱：[Here]</del></li>
+<li>🐙 GitHub：[<a target="_blank" rel="noopener" href="https://github.com/hmppt">Here</a>]</li>
+<li><del>💬 或者在文章下方留言</del></li>
+</ul>
+<p>感谢你的访问，希望我们能在这里相遇并成为朋友！</p>
+<hr>
+<p><em>“路漫漫其修远兮，吾将上下而求索。”</em></p>
+
       </div>
-    
-      <div class="post-item" title="这里是鸽非凡">
-        <div class="time-m-d">07-29</div>
-        <div class="title">
-          <a href="/2025/07/29/The-first/">
-            <span>这里是鸽非凡</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Hello World">
-        <div class="time-m-d">07-22</div>
-        <div class="title">
-          <a href="/2025/07/22/hello-world/">
-            <span>Hello World</span>
-          </a>
-        </div>
-      </div>
-    
-  </div>
-</div>
+    </div>
+  
+
+  
 
         
 <div class="footer">
@@ -414,6 +438,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + about + '&url=' + https%3A%2F%2Fhmppt.github.io%2Fabout%2Findex.html + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://hmppt.github.io/about/index.html" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
