@@ -13,7 +13,7 @@
   
   <title>
     
-      这里是鸽非凡 
+      大模型开发学习 
       
       
       |
@@ -157,19 +157,19 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">这里是鸽非凡</div>
+      <div class="post-title">大模型开发学习</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2025-08-03 14:01:36
+          2025-08-03 21:40:40
         </span>
         
               <span class="post-categories">
                 <i class="iconfont icon-bookmark" title="Categories"></i>
                 
                 <span class="span--category">
-                  <a href="/categories/Life/" title="Life">
-                    <b>#</b> Life
+                  <a href="/categories/Tech/" title="Tech">
+                    <b>#</b> Tech
                   </a>
                 </span>
                 
@@ -179,8 +179,32 @@
                 <i class="iconfont icon-tags mr-10" title="Tags"></i>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/%E6%97%A5%E5%B8%B8/" title="日常">
-                    #日常
+                  <a href="/tags/LLM/" title="LLM">
+                    #LLM
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">
+                    #学习
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%BC%80%E5%8F%91/" title="开发">
+                    #开发
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/Agent/" title="Agent">
+                    #Agent
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/RAG/" title="RAG">
+                    #RAG
                   </a>
                 </span>
                 
@@ -188,19 +212,63 @@
           
       </div>
       <div class="markdown-body">
-        <h1 id="重新开始"><a href="#重新开始" class="headerlink" title="重新开始"></a>重新开始</h1><p>这不是我第一次写博客。</p>
-<p>2020年大二，技术世界刚刚向我敞开大门。看着同学们搭建的精美博客，我也想拥有一个属于自己的角落。和<a target="_blank" rel="noopener" href="https://gin-zc.github.io/">Gin</a>一起摸索，从零开始搭建。虽然内容不多，但看着页面成功运行的那一刻，心里满是成就感。</p>
-<p>2022年考研结束，西安封城。被困在宿舍的日子里，除了翻看毕设资料，就是重新规划博客的想法。想要养成写作的习惯，记录思考的过程。但计划还没开始，身体就出了问题——腰痛让我在床上躺了半年。好在考研的结果还算满意，这成了那段灰暗日子里唯一的光亮。</p>
-<p>康复后，和本科同学<a target="_blank" rel="noopener" href="https://2015wan.github.io/">wh</a>、<a target="_blank" rel="noopener" href="https://wd-2711.tech/">wd-2711</a>的友谊更深了。共同经历让我们从普通同学变成真正的朋友。有时候，困难也会带来意想不到的收获。</p>
-<p>现在研究生毕业了，我重新搭建这个博客。不只是为了记录技术学习，更想记录生活本身。那些停下来的日子教会我：坚持不是一直向前，而是跌倒后还能重新站起来。</p>
-<p>这里会有技术笔记，也会有生活感悟。有代码的严谨，也有日常的琐碎。重新开始敲下这些文字时，我知道这次不一样了——不再是一时兴起，而是真正想要坚持下去的决定。</p>
+        <blockquote>
+<p><strong>写在前面：</strong><br>这是在小红书上看到的一个学习路径，感觉比较实用，所以整理过来，监督自己学习。</p>
+<ul>
+<li>Todo：从头到尾学习一遍。</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="大模型开发学习路径：从入门到落地"><a href="#大模型开发学习路径：从入门到落地" class="headerlink" title="大模型开发学习路径：从入门到落地"></a>大模型开发学习路径：从入门到落地</h1><h2 id="第一阶段：初识LLM-API使用与Agent探索-✅"><a href="#第一阶段：初识LLM-API使用与Agent探索-✅" class="headerlink" title="第一阶段：初识LLM - API使用与Agent探索   ✅"></a>第一阶段：初识LLM - API使用与Agent探索   ✅</h2><p><strong>核心目标</strong>：了解LLM能做什么，学会基础使用</p>
+<p>这个阶段主要是<strong>把LLM当作API来使用</strong>，重点掌握：</p>
+<ul>
+<li>提示词工程（Prompt Engineering）- 这是基础中的基础 </li>
+<li>Agent的基本概念和应用场景</li>
+<li>了解不同模型的特性和适用场景</li>
+</ul>
+<p><strong>推荐资源</strong>：吴恩达的相关课程讲得非常好，强烈推荐。这个阶段不要急于深入技术细节，先培养对LLM能力边界的直觉。<br><a href="/2025/08/03/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/">这里可以看到我的个人笔记</a></p>
+<h2 id="第二阶段：深入原理-模型架构与微调技术"><a href="#第二阶段：深入原理-模型架构与微调技术" class="headerlink" title="第二阶段：深入原理 - 模型架构与微调技术"></a>第二阶段：深入原理 - 模型架构与微调技术</h2><p><strong>核心目标</strong>：理解LLM的工作原理，具备模型部署能力</p>
+<p>进入这个阶段，你需要学习：</p>
+<ul>
+<li><strong>Transformer模型</strong>的基本原理和注意力机制</li>
+<li><strong>模型微调技术</strong>：SFT（Supervised Fine-tuning）等</li>
+<li><strong>开发框架</strong>：PyTorch的使用</li>
+<li><strong>模型部署</strong>：利用Hugging Face部署开源模型</li>
+<li><strong>API参数理解</strong>：top-k、temperature等参数的实际含义</li>
+</ul>
+<p>这个阶段会让你从”会用”上升到”理解”，为后续的深入应用打下坚实基础。</p>
+<h2 id="第三阶段：知识增强-RAG技术栈深入"><a href="#第三阶段：知识增强-RAG技术栈深入" class="headerlink" title="第三阶段：知识增强 - RAG技术栈深入"></a>第三阶段：知识增强 - RAG技术栈深入</h2><p><strong>核心目标</strong>：解决模型知识局限性，提升输出质量</p>
+<p>当你开始做Agent落地时会发现，单纯的LLM往往知识不够用，这时就需要<strong>RAG（检索增强生成）技术</strong>：</p>
+<ul>
+<li>向量数据库的选择和使用</li>
+<li>文档切分和索引策略</li>
+<li>检索算法优化</li>
+<li>知识图谱集成</li>
+</ul>
+<p>RAG的技术栈相当庞大，需要耐心学习。可以关注我主页的相关介绍，有更详细的技术分享。</p>
+<h2 id="第四阶段：工程实践-流式编程与性能优化"><a href="#第四阶段：工程实践-流式编程与性能优化" class="headerlink" title="第四阶段：工程实践 - 流式编程与性能优化"></a>第四阶段：工程实践 - 流式编程与性能优化</h2><p><strong>核心目标</strong>：构建高性能的AI应用</p>
+<p>这个阶段重点关注<strong>用户体验</strong>，特别是响应速度：</p>
+<ul>
+<li><strong>编程语言选择</strong>：推荐Python（AI生态最友好）、Go、TypeScript等</li>
+<li><strong>流式编程</strong>：实现实时响应，提升用户体验</li>
+<li><strong>性能优化</strong>：降低延迟，提高并发处理能力</li>
+</ul>
+<p>记住：Agent产品的体验很重要，而体验的核心往往就是响应时间。</p>
+<h2 id="第五阶段：产品思维-AI技术的业务落地"><a href="#第五阶段：产品思维-AI技术的业务落地" class="headerlink" title="第五阶段：产品思维 - AI技术的业务落地"></a>第五阶段：产品思维 - AI技术的业务落地</h2><p><strong>核心目标</strong>：将技术转化为实际价值</p>
+<p>最后也是最重要的阶段：</p>
+<ul>
+<li><strong>关注行业大牛</strong>和优秀开源项目，学习最佳实践</li>
+<li><strong>结合工作场景</strong>，思考AI如何解决实际问题</li>
+<li><strong>培养产品思维</strong>：技术是服务业务的，要有全局视角</li>
+</ul>
+<p><strong>核心理念</strong>：我们做的是AI应用层，不是底层模型。有产品思维的技术人员，在AI时代会更有竞争力。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2025/07/22/hello-world/" target="_self">
+              <a href="/2025/08/03/%E5%85%B3%E8%A5%BF%E4%B9%8B%E6%97%85/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -209,15 +277,15 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2025-08-03 14:01:36
+              2025-08-03 21:40:40
             </span>
             
                   <span class="post-categories">
                     <i class="iconfont icon-bookmark" title="Categories"></i>
                     
                     <span class="span--category">
-                      <a href="/categories/Life/" title="Life">
-                        <b>#</b> Life
+                      <a href="/categories/Tech/" title="Tech">
+                        <b>#</b> Tech
                       </a>
                     </span>
                     
@@ -227,8 +295,32 @@
                     <i class="iconfont icon-tags mr-10" title="Tags"></i>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/%E6%97%A5%E5%B8%B8/" title="日常">
-                        #日常
+                      <a href="/tags/LLM/" title="LLM">
+                        #LLM
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">
+                        #学习
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%BC%80%E5%8F%91/" title="开发">
+                        #开发
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/Agent/" title="Agent">
+                        #Agent
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/RAG/" title="RAG">
+                        #RAG
                       </a>
                     </span>
                     
@@ -237,7 +329,7 @@
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2025/08/03/%E5%85%B3%E8%A5%BF%E4%B9%8B%E6%97%85/" target="_self">
+              <a href="/2025/08/03/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -254,7 +346,7 @@
     <div class="title">Contents</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%BC%80%E5%A7%8B"><span class="toc-text">重新开始</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%90%BD%E5%9C%B0"><span class="toc-text">大模型开发学习路径：从入门到落地</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%88%9D%E8%AF%86LLM-API%E4%BD%BF%E7%94%A8%E4%B8%8EAgent%E6%8E%A2%E7%B4%A2-%E2%9C%85"><span class="toc-text">第一阶段：初识LLM - API使用与Agent探索   ✅</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E6%B7%B1%E5%85%A5%E5%8E%9F%E7%90%86-%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%BE%AE%E8%B0%83%E6%8A%80%E6%9C%AF"><span class="toc-text">第二阶段：深入原理 - 模型架构与微调技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9A%E7%9F%A5%E8%AF%86%E5%A2%9E%E5%BC%BA-RAG%E6%8A%80%E6%9C%AF%E6%A0%88%E6%B7%B1%E5%85%A5"><span class="toc-text">第三阶段：知识增强 - RAG技术栈深入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5-%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%8E%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-text">第四阶段：工程实践 - 流式编程与性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5%EF%BC%9A%E4%BA%A7%E5%93%81%E6%80%9D%E7%BB%B4-AI%E6%8A%80%E6%9C%AF%E7%9A%84%E4%B8%9A%E5%8A%A1%E8%90%BD%E5%9C%B0"><span class="toc-text">第五阶段：产品思维 - AI技术的业务落地</span></a></li></ol></li></ol>
       
     </div>
   </div>
@@ -531,12 +623,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E8%BF%99%E9%87%8C%E6%98%AF%E9%B8%BD%E9%9D%9E%E5%87%A1 + '&url=' + https%3A%2F%2Fhmppt.github.io%2F2025%2F07%2F29%2FThe-first%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0 + '&url=' + https%3A%2F%2Fhmppt.github.io%2F2025%2F08%2F03%2F%25E5%25A4%25A7%25E6%25A8%25A1%25E5%259E%258B%25E5%25BC%2580%25E5%258F%2591%25E5%25AD%25A6%25E4%25B9%25A0%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://hmppt.github.io/2025/07/29/The-first/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://hmppt.github.io/2025/08/03/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

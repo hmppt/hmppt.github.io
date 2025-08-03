@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-cn" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      提示词工程笔记 
+      
+      
+      |
+    
+     鸽非凡
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">鸽非凡</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">提示词工程笔记</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2025-08-03 22:50:34
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/Tech/" title="Tech">
+                    <b>#</b> Tech
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/LLM/" title="LLM">
+                    #LLM
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">
+                    #学习
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/Prompt/" title="Prompt">
+                    #Prompt
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="提示词工程：与AI对话的艺术"><a href="#提示词工程：与AI对话的艺术" class="headerlink" title="提示词工程：与AI对话的艺术"></a>提示词工程：与AI对话的艺术</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>提示词工程（Prompt Engineering）是大语言模型应用中最基础也是最关键的技能。一个好的提示词能让模型输出精准、有用的结果；而糟糕的提示词则可能导致模型输出混乱、不相关的内容。</p>
+<p>正如吴恩达教授所说：”提示词工程是基础中的基础，也是最难的部分。”掌握这门技艺，就像学会了与AI进行有效沟通的语言。</p>
+<hr>
+<h2 id="核心指导原则"><a href="#核心指导原则" class="headerlink" title="核心指导原则"></a>核心指导原则</h2><p>当大语言模型不能正常工作时，往往是因为指令不够清晰。基于大量实践，我们总结出两个核心指导原则：</p>
+<h3 id="原则一：编写清晰而具体的提示"><a href="#原则一：编写清晰而具体的提示" class="headerlink" title="原则一：编写清晰而具体的提示"></a>原则一：编写清晰而具体的提示</h3><p><strong>目标</strong>：让模型准确理解你的意图</p>
+<h4 id="1-使用分隔符区分不同部分"><a href="#1-使用分隔符区分不同部分" class="headerlink" title="1. 使用分隔符区分不同部分"></a>1. 使用分隔符区分不同部分</h4><p>使用明确的分隔符（如三重反引号、XML标签等）来区分指令和待处理内容：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请总结以下文本的主要内容：</span><br><span class="line"></span><br><span class="line">```text```</span><br><span class="line">[这里是要处理的文本内容]</span><br><span class="line">```text```</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么有效</strong>：分隔符能防止”提示词注入”攻击，同时让模型清楚地知道哪部分是指令，哪部分是数据。</p>
+<h4 id="2-要求结构化输出"><a href="#2-要求结构化输出" class="headerlink" title="2. 要求结构化输出"></a>2. 要求结构化输出</h4><p>明确指定输出格式，如JSON、HTML或其他结构化形式：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请以<span class="built_in">JSON</span>格式输出分析结果：</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;主题&quot;</span>: <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="string">&quot;情感&quot;</span>: <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="string">&quot;关键词&quot;</span>: [<span class="string">&quot;...&quot;</span>, <span class="string">&quot;...&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-设置条件判断"><a href="#3-设置条件判断" class="headerlink" title="3. 设置条件判断"></a>3. 设置条件判断</h4><p>让模型根据条件进行不同的处理：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果文本包含技术内容，输出<span class="string">&quot;技术文章&quot;</span>；</span><br><span class="line">如果文本包含生活分享，输出<span class="string">&quot;生活感悟&quot;</span>；</span><br><span class="line">如果无法确定类型，输出<span class="string">&quot;未分类&quot;</span>。</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-提供示例（Few-shot-Learning）"><a href="#4-提供示例（Few-shot-Learning）" class="headerlink" title="4. 提供示例（Few-shot Learning）"></a>4. 提供示例（Few-shot Learning）</h4><p>通过示例展示期望的输出格式和质量：</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">以下是一些产品评论的情感分析示例：</span><br><span class="line"></span><br><span class="line">评论：<span class="string">&quot;这个产品太棒了！&quot;</span> → 情感：积极</span><br><span class="line">评论：<span class="string">&quot;质量一般，不推荐。&quot;</span> → 情感：消极</span><br><span class="line"></span><br><span class="line">现在请分析以下评论：...</span><br></pre></td></tr></table></figure>
+
+<h3 id="原则二：给模型充分的思考时间"><a href="#原则二：给模型充分的思考时间" class="headerlink" title="原则二：给模型充分的思考时间"></a>原则二：给模型充分的思考时间</h3><p><strong>目标</strong>：让模型进行深度推理，而非匆忙回答</p>
+<h4 id="1-分解复杂任务"><a href="#1-分解复杂任务" class="headerlink" title="1. 分解复杂任务"></a>1. 分解复杂任务</h4><p>将复杂任务分解为多个步骤：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请按以下步骤分析这篇文章：</span><br><span class="line"><span class="bullet">1.</span> 总结主要观点</span><br><span class="line"><span class="bullet">2.</span> 识别支撑论据</span><br><span class="line"><span class="bullet">3.</span> 评估论证逻辑</span><br><span class="line"><span class="bullet">4.</span> 给出整体评价</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-让模型自主验证"><a href="#2-让模型自主验证" class="headerlink" title="2. 让模型自主验证"></a>2. 让模型自主验证</h4><p>在得出最终结论前，要求模型先独立思考：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">题目：<span class="selector-attr">[数学题目]</span></span><br><span class="line"></span><br><span class="line">请先自己解决这个问题，然后检查你的答案是否正确。</span><br><span class="line">如果发现错误，请重新计算。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-防范幻觉问题"><a href="#3-防范幻觉问题" class="headerlink" title="3. 防范幻觉问题"></a>3. 防范幻觉问题</h4><p>要求模型基于具体内容回答，并提供引用：</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">基于以下文档内容回答问题，并在答案中标注引用来源：</span><br><span class="line"></span><br><span class="line">[文档内容]</span><br><span class="line"></span><br><span class="line">问题：...</span><br><span class="line"></span><br><span class="line">要求：如果文档中没有相关信息，请明确说明<span class="string">&quot;文档中未提及此信息&quot;</span>。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="迭代优化策略"><a href="#迭代优化策略" class="headerlink" title="迭代优化策略"></a>迭代优化策略</h2><h3 id="建立测试驱动的开发流程"><a href="#建立测试驱动的开发流程" class="headerlink" title="建立测试驱动的开发流程"></a>建立测试驱动的开发流程</h3><ol>
+<li><strong>准备测试用例</strong>：收集代表性的输入样本</li>
+<li><strong>设计评估指标</strong>：准确性、相关性、格式正确性等</li>
+<li><strong>版本控制</strong>：记录每次提示词的修改和效果</li>
+<li><strong>A&#x2F;B测试</strong>：对比不同版本的提示词效果</li>
+</ol>
+<h3 id="常见优化技巧"><a href="#常见优化技巧" class="headerlink" title="常见优化技巧"></a>常见优化技巧</h3><ul>
+<li><strong>增加上下文</strong>：提供更多背景信息</li>
+<li><strong>调整语气</strong>：使用更专业或更友好的表达</li>
+<li><strong>细化指令</strong>：将模糊的要求具体化</li>
+<li><strong>添加约束</strong>：限制输出长度、格式或内容范围</li>
+</ul>
+<hr>
+<h2 id="任务类型与应用场景"><a href="#任务类型与应用场景" class="headerlink" title="任务类型与应用场景"></a>任务类型与应用场景</h2><h3 id="📋-文本摘要任务"><a href="#📋-文本摘要任务" class="headerlink" title="📋 文本摘要任务"></a>📋 文本摘要任务</h3><p><strong>适用场景</strong>：信息提取、内容概览、报告生成</p>
+<p><strong>核心技巧</strong>：</p>
+<ul>
+<li><strong>单文档摘要</strong>：控制摘要长度和重点</li>
+<li><strong>多文档摘要</strong>：识别共同主题和差异点</li>
+<li><strong>定向摘要</strong>：提取特定类型的信息</li>
+<li><strong>分层摘要</strong>：生成不同详细程度的摘要</li>
+</ul>
+<p><strong>实际应用</strong>：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请为以下产品评论生成摘要，重点关注：</span><br><span class="line"><span class="bullet">1.</span> 用户满意度</span><br><span class="line"><span class="bullet">2.</span> 主要优缺点</span><br><span class="line"><span class="bullet">3.</span> 购买建议</span><br><span class="line"></span><br><span class="line">长度控制在150字以内。</span><br></pre></td></tr></table></figure>
+
+<p><strong>RAG应用技巧</strong>：使用LLM生成文档摘要，然后通过RAG检索相关摘要片段，提高检索精度。</p>
+<h3 id="🧠-推理分析任务"><a href="#🧠-推理分析任务" class="headerlink" title="🧠 推理分析任务"></a>🧠 推理分析任务</h3><p><strong>适用场景</strong>：逻辑推理、情感分析、分类标注</p>
+<p><strong>核心能力</strong>：</p>
+<ul>
+<li><strong>格式控制</strong>：确保输出符合预期结构</li>
+<li><strong>JSON输出</strong>：便于程序化处理</li>
+<li><strong>多任务处理</strong>：同时完成分类、提取、分析等</li>
+<li><strong>主题建模</strong>：识别文本主题并建立索引</li>
+<li><strong>智能提醒</strong>：基于内容生成相关提醒</li>
+</ul>
+<p><strong>示例应用</strong>：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">请分析以下客户反馈，输出<span class="built_in">JSON</span>格式：</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;情感倾向&quot;</span>: <span class="string">&quot;积极/消极/中性&quot;</span>,</span><br><span class="line">  <span class="string">&quot;主要问题&quot;</span>: [<span class="string">&quot;问题1&quot;</span>, <span class="string">&quot;问题2&quot;</span>],</span><br><span class="line">  <span class="string">&quot;紧急程度&quot;</span>: <span class="string">&quot;高/中/低&quot;</span>,</span><br><span class="line">  <span class="string">&quot;建议处理方式&quot;</span>: <span class="string">&quot;...&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔄-文本转换任务"><a href="#🔄-文本转换任务" class="headerlink" title="🔄 文本转换任务"></a>🔄 文本转换任务</h3><p><strong>适用场景</strong>：翻译、格式转换、风格改写</p>
+<p><strong>LLM优势</strong>：在转换类任务中表现特别出色，能够：</p>
+<ul>
+<li>保持内容准确性</li>
+<li>适应目标格式要求</li>
+<li>处理复杂的语言现象</li>
+</ul>
+<h3 id="📈-内容扩充任务"><a href="#📈-内容扩充任务" class="headerlink" title="📈 内容扩充任务"></a>📈 内容扩充任务</h3><p><strong>适用场景</strong>：创意写作、内容生成、头脑风暴</p>
+<p><strong>参数调优关键</strong>：</p>
+<ul>
+<li><strong>Temperature &#x3D; 0</strong>：用于需要一致性和可预测性的系统</li>
+<li><strong>Temperature &gt; 0</strong>：用于需要创造性和多样性的场景</li>
+</ul>
+<p><strong>平衡策略</strong>：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于正式文档：temperature <span class="operator">=</span> <span class="number">0.1</span>-<span class="number">0.3</span></span><br><span class="line">对于创意写作：temperature <span class="operator">=</span> <span class="number">0.7</span>-<span class="number">0.9</span></span><br><span class="line">对于代码生成：temperature <span class="operator">=</span> <span class="number">0</span>-<span class="number">0.2</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="实践建议与经验总结"><a href="#实践建议与经验总结" class="headerlink" title="实践建议与经验总结"></a>实践建议与经验总结</h2><h3 id="🎯-最佳实践"><a href="#🎯-最佳实践" class="headerlink" title="🎯 最佳实践"></a>🎯 最佳实践</h3><ol>
+<li><strong>明确目标</strong>：在写提示词前，先明确你希望模型做什么</li>
+<li><strong>逐步细化</strong>：从简单的提示开始，逐渐添加细节和约束</li>
+<li><strong>测试验证</strong>：用多个示例测试提示词的稳定性</li>
+<li><strong>文档记录</strong>：记录有效的提示词模板，方便复用</li>
+</ol>
+<h3 id="⚠️-常见陷阱"><a href="#⚠️-常见陷阱" class="headerlink" title="⚠️ 常见陷阱"></a>⚠️ 常见陷阱</h3><ol>
+<li><strong>过于复杂</strong>：提示词过长可能导致模型混淆</li>
+<li><strong>缺乏示例</strong>：抽象的指令不如具体的示例有效</li>
+<li><strong>忽略上下文</strong>：没有提供足够的背景信息</li>
+<li><strong>一成不变</strong>：不根据反馈调整提示词</li>
+</ol>
+<h3 id="🚀-进阶技巧"><a href="#🚀-进阶技巧" class="headerlink" title="🚀 进阶技巧"></a>🚀 进阶技巧</h3><ol>
+<li><strong>链式思考</strong>（Chain of Thought）：引导模型展示推理过程</li>
+<li><strong>角色扮演</strong>：让模型扮演特定专家角色</li>
+<li><strong>对比学习</strong>：提供正面和反面示例</li>
+<li><strong>元提示</strong>：使用提示词来优化提示词</li>
+</ol>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>提示词工程是一门需要不断实践和迭代的技艺。随着对模型能力的深入理解和实际应用的增多，你会逐渐形成自己的提示词风格和技巧库。</p>
+<p>记住：好的提示词不是一次写成的，而是在不断的测试和优化中诞生的。保持耐心，享受与AI对话的过程，你会发现这门技艺的无穷魅力。</p>
+<hr>
+<p><em>参考资料：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/626966526">吴恩达《ChatGPT Prompt Engineering for Developers》</a></em></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2025/08/03/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2025-08-03 22:50:34
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/Tech/" title="Tech">
+                        <b>#</b> Tech
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/LLM/" title="LLM">
+                        #LLM
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">
+                        #学习
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/Prompt/" title="Prompt">
+                        #Prompt
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%EF%BC%9A%E4%B8%8EAI%E5%AF%B9%E8%AF%9D%E7%9A%84%E8%89%BA%E6%9C%AF"><span class="toc-text">提示词工程：与AI对话的艺术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%8C%87%E5%AF%BC%E5%8E%9F%E5%88%99"><span class="toc-text">核心指导原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%88%99%E4%B8%80%EF%BC%9A%E7%BC%96%E5%86%99%E6%B8%85%E6%99%B0%E8%80%8C%E5%85%B7%E4%BD%93%E7%9A%84%E6%8F%90%E7%A4%BA"><span class="toc-text">原则一：编写清晰而具体的提示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E5%88%86%E9%9A%94%E7%AC%A6%E5%8C%BA%E5%88%86%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86"><span class="toc-text">1. 使用分隔符区分不同部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%A6%81%E6%B1%82%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA"><span class="toc-text">2. 要求结构化输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%AE%BE%E7%BD%AE%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-text">3. 设置条件判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%8F%90%E4%BE%9B%E7%A4%BA%E4%BE%8B%EF%BC%88Few-shot-Learning%EF%BC%89"><span class="toc-text">4. 提供示例（Few-shot Learning）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%88%99%E4%BA%8C%EF%BC%9A%E7%BB%99%E6%A8%A1%E5%9E%8B%E5%85%85%E5%88%86%E7%9A%84%E6%80%9D%E8%80%83%E6%97%B6%E9%97%B4"><span class="toc-text">原则二：给模型充分的思考时间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%86%E8%A7%A3%E5%A4%8D%E6%9D%82%E4%BB%BB%E5%8A%A1"><span class="toc-text">1. 分解复杂任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%AE%A9%E6%A8%A1%E5%9E%8B%E8%87%AA%E4%B8%BB%E9%AA%8C%E8%AF%81"><span class="toc-text">2. 让模型自主验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%98%B2%E8%8C%83%E5%B9%BB%E8%A7%89%E9%97%AE%E9%A2%98"><span class="toc-text">3. 防范幻觉问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-text">迭代优化策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-text">建立测试驱动的开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7"><span class="toc-text">常见优化技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">任务类型与应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8B-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E4%BB%BB%E5%8A%A1"><span class="toc-text">📋 文本摘要任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-%E6%8E%A8%E7%90%86%E5%88%86%E6%9E%90%E4%BB%BB%E5%8A%A1"><span class="toc-text">🧠 推理分析任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%84-%E6%96%87%E6%9C%AC%E8%BD%AC%E6%8D%A2%E4%BB%BB%E5%8A%A1"><span class="toc-text">🔄 文本转换任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%88-%E5%86%85%E5%AE%B9%E6%89%A9%E5%85%85%E4%BB%BB%E5%8A%A1"><span class="toc-text">📈 内容扩充任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E5%BB%BA%E8%AE%AE%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="toc-text">实践建议与经验总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-text">🎯 最佳实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A0%EF%B8%8F-%E5%B8%B8%E8%A7%81%E9%99%B7%E9%98%B1"><span class="toc-text">⚠️ 常见陷阱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%80-%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7"><span class="toc-text">🚀 进阶技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2025 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0 + '&url=' + https%3A%2F%2Fhmppt.github.io%2F2025%2F08%2F03%2F%25E6%258F%2590%25E7%25A4%25BA%25E8%25AF%258D%25E5%25B7%25A5%25E7%25A8%258B%25E7%25AC%2594%25E8%25AE%25B0%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://hmppt.github.io/2025/08/03/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

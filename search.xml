@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>提示词工程笔记</title>
+      <link href="/2025/08/03/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+      <url>/2025/08/03/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="提示词工程：与AI对话的艺术"><a href="#提示词工程：与AI对话的艺术" class="headerlink" title="提示词工程：与AI对话的艺术"></a>提示词工程：与AI对话的艺术</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>提示词工程（Prompt Engineering）是大语言模型应用中最基础也是最关键的技能。一个好的提示词能让模型输出精准、有用的结果；而糟糕的提示词则可能导致模型输出混乱、不相关的内容。</p><p>正如吴恩达教授所说：”提示词工程是基础中的基础，也是最难的部分。”掌握这门技艺，就像学会了与AI进行有效沟通的语言。</p><hr><h2 id="核心指导原则"><a href="#核心指导原则" class="headerlink" title="核心指导原则"></a>核心指导原则</h2><p>当大语言模型不能正常工作时，往往是因为指令不够清晰。基于大量实践，我们总结出两个核心指导原则：</p><h3 id="原则一：编写清晰而具体的提示"><a href="#原则一：编写清晰而具体的提示" class="headerlink" title="原则一：编写清晰而具体的提示"></a>原则一：编写清晰而具体的提示</h3><p><strong>目标</strong>：让模型准确理解你的意图</p><h4 id="1-使用分隔符区分不同部分"><a href="#1-使用分隔符区分不同部分" class="headerlink" title="1. 使用分隔符区分不同部分"></a>1. 使用分隔符区分不同部分</h4><p>使用明确的分隔符（如三重反引号、XML标签等）来区分指令和待处理内容：</p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请总结以下文本的主要内容：</span><br><span class="line"></span><br><span class="line">```text```</span><br><span class="line">[这里是要处理的文本内容]</span><br><span class="line">```text```</span><br></pre></td></tr></table></figure><p><strong>为什么有效</strong>：分隔符能防止”提示词注入”攻击，同时让模型清楚地知道哪部分是指令，哪部分是数据。</p><h4 id="2-要求结构化输出"><a href="#2-要求结构化输出" class="headerlink" title="2. 要求结构化输出"></a>2. 要求结构化输出</h4><p>明确指定输出格式，如JSON、HTML或其他结构化形式：</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请以<span class="built_in">JSON</span>格式输出分析结果：</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;主题&quot;</span>: <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="string">&quot;情感&quot;</span>: <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="string">&quot;关键词&quot;</span>: [<span class="string">&quot;...&quot;</span>, <span class="string">&quot;...&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="3-设置条件判断"><a href="#3-设置条件判断" class="headerlink" title="3. 设置条件判断"></a>3. 设置条件判断</h4><p>让模型根据条件进行不同的处理：</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果文本包含技术内容，输出<span class="string">&quot;技术文章&quot;</span>；</span><br><span class="line">如果文本包含生活分享，输出<span class="string">&quot;生活感悟&quot;</span>；</span><br><span class="line">如果无法确定类型，输出<span class="string">&quot;未分类&quot;</span>。</span><br></pre></td></tr></table></figure><h4 id="4-提供示例（Few-shot-Learning）"><a href="#4-提供示例（Few-shot-Learning）" class="headerlink" title="4. 提供示例（Few-shot Learning）"></a>4. 提供示例（Few-shot Learning）</h4><p>通过示例展示期望的输出格式和质量：</p><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">以下是一些产品评论的情感分析示例：</span><br><span class="line"></span><br><span class="line">评论：<span class="string">&quot;这个产品太棒了！&quot;</span> → 情感：积极</span><br><span class="line">评论：<span class="string">&quot;质量一般，不推荐。&quot;</span> → 情感：消极</span><br><span class="line"></span><br><span class="line">现在请分析以下评论：...</span><br></pre></td></tr></table></figure><h3 id="原则二：给模型充分的思考时间"><a href="#原则二：给模型充分的思考时间" class="headerlink" title="原则二：给模型充分的思考时间"></a>原则二：给模型充分的思考时间</h3><p><strong>目标</strong>：让模型进行深度推理，而非匆忙回答</p><h4 id="1-分解复杂任务"><a href="#1-分解复杂任务" class="headerlink" title="1. 分解复杂任务"></a>1. 分解复杂任务</h4><p>将复杂任务分解为多个步骤：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请按以下步骤分析这篇文章：</span><br><span class="line"><span class="bullet">1.</span> 总结主要观点</span><br><span class="line"><span class="bullet">2.</span> 识别支撑论据</span><br><span class="line"><span class="bullet">3.</span> 评估论证逻辑</span><br><span class="line"><span class="bullet">4.</span> 给出整体评价</span><br></pre></td></tr></table></figure><h4 id="2-让模型自主验证"><a href="#2-让模型自主验证" class="headerlink" title="2. 让模型自主验证"></a>2. 让模型自主验证</h4><p>在得出最终结论前，要求模型先独立思考：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">题目：<span class="selector-attr">[数学题目]</span></span><br><span class="line"></span><br><span class="line">请先自己解决这个问题，然后检查你的答案是否正确。</span><br><span class="line">如果发现错误，请重新计算。</span><br></pre></td></tr></table></figure><h4 id="3-防范幻觉问题"><a href="#3-防范幻觉问题" class="headerlink" title="3. 防范幻觉问题"></a>3. 防范幻觉问题</h4><p>要求模型基于具体内容回答，并提供引用：</p><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">基于以下文档内容回答问题，并在答案中标注引用来源：</span><br><span class="line"></span><br><span class="line">[文档内容]</span><br><span class="line"></span><br><span class="line">问题：...</span><br><span class="line"></span><br><span class="line">要求：如果文档中没有相关信息，请明确说明<span class="string">&quot;文档中未提及此信息&quot;</span>。</span><br></pre></td></tr></table></figure><hr><h2 id="迭代优化策略"><a href="#迭代优化策略" class="headerlink" title="迭代优化策略"></a>迭代优化策略</h2><h3 id="建立测试驱动的开发流程"><a href="#建立测试驱动的开发流程" class="headerlink" title="建立测试驱动的开发流程"></a>建立测试驱动的开发流程</h3><ol><li><strong>准备测试用例</strong>：收集代表性的输入样本</li><li><strong>设计评估指标</strong>：准确性、相关性、格式正确性等</li><li><strong>版本控制</strong>：记录每次提示词的修改和效果</li><li><strong>A&#x2F;B测试</strong>：对比不同版本的提示词效果</li></ol><h3 id="常见优化技巧"><a href="#常见优化技巧" class="headerlink" title="常见优化技巧"></a>常见优化技巧</h3><ul><li><strong>增加上下文</strong>：提供更多背景信息</li><li><strong>调整语气</strong>：使用更专业或更友好的表达</li><li><strong>细化指令</strong>：将模糊的要求具体化</li><li><strong>添加约束</strong>：限制输出长度、格式或内容范围</li></ul><hr><h2 id="任务类型与应用场景"><a href="#任务类型与应用场景" class="headerlink" title="任务类型与应用场景"></a>任务类型与应用场景</h2><h3 id="📋-文本摘要任务"><a href="#📋-文本摘要任务" class="headerlink" title="📋 文本摘要任务"></a>📋 文本摘要任务</h3><p><strong>适用场景</strong>：信息提取、内容概览、报告生成</p><p><strong>核心技巧</strong>：</p><ul><li><strong>单文档摘要</strong>：控制摘要长度和重点</li><li><strong>多文档摘要</strong>：识别共同主题和差异点</li><li><strong>定向摘要</strong>：提取特定类型的信息</li><li><strong>分层摘要</strong>：生成不同详细程度的摘要</li></ul><p><strong>实际应用</strong>：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请为以下产品评论生成摘要，重点关注：</span><br><span class="line"><span class="bullet">1.</span> 用户满意度</span><br><span class="line"><span class="bullet">2.</span> 主要优缺点</span><br><span class="line"><span class="bullet">3.</span> 购买建议</span><br><span class="line"></span><br><span class="line">长度控制在150字以内。</span><br></pre></td></tr></table></figure><p><strong>RAG应用技巧</strong>：使用LLM生成文档摘要，然后通过RAG检索相关摘要片段，提高检索精度。</p><h3 id="🧠-推理分析任务"><a href="#🧠-推理分析任务" class="headerlink" title="🧠 推理分析任务"></a>🧠 推理分析任务</h3><p><strong>适用场景</strong>：逻辑推理、情感分析、分类标注</p><p><strong>核心能力</strong>：</p><ul><li><strong>格式控制</strong>：确保输出符合预期结构</li><li><strong>JSON输出</strong>：便于程序化处理</li><li><strong>多任务处理</strong>：同时完成分类、提取、分析等</li><li><strong>主题建模</strong>：识别文本主题并建立索引</li><li><strong>智能提醒</strong>：基于内容生成相关提醒</li></ul><p><strong>示例应用</strong>：</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">请分析以下客户反馈，输出<span class="built_in">JSON</span>格式：</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;情感倾向&quot;</span>: <span class="string">&quot;积极/消极/中性&quot;</span>,</span><br><span class="line">  <span class="string">&quot;主要问题&quot;</span>: [<span class="string">&quot;问题1&quot;</span>, <span class="string">&quot;问题2&quot;</span>],</span><br><span class="line">  <span class="string">&quot;紧急程度&quot;</span>: <span class="string">&quot;高/中/低&quot;</span>,</span><br><span class="line">  <span class="string">&quot;建议处理方式&quot;</span>: <span class="string">&quot;...&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="🔄-文本转换任务"><a href="#🔄-文本转换任务" class="headerlink" title="🔄 文本转换任务"></a>🔄 文本转换任务</h3><p><strong>适用场景</strong>：翻译、格式转换、风格改写</p><p><strong>LLM优势</strong>：在转换类任务中表现特别出色，能够：</p><ul><li>保持内容准确性</li><li>适应目标格式要求</li><li>处理复杂的语言现象</li></ul><h3 id="📈-内容扩充任务"><a href="#📈-内容扩充任务" class="headerlink" title="📈 内容扩充任务"></a>📈 内容扩充任务</h3><p><strong>适用场景</strong>：创意写作、内容生成、头脑风暴</p><p><strong>参数调优关键</strong>：</p><ul><li><strong>Temperature &#x3D; 0</strong>：用于需要一致性和可预测性的系统</li><li><strong>Temperature &gt; 0</strong>：用于需要创造性和多样性的场景</li></ul><p><strong>平衡策略</strong>：</p><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于正式文档：temperature <span class="operator">=</span> <span class="number">0.1</span>-<span class="number">0.3</span></span><br><span class="line">对于创意写作：temperature <span class="operator">=</span> <span class="number">0.7</span>-<span class="number">0.9</span></span><br><span class="line">对于代码生成：temperature <span class="operator">=</span> <span class="number">0</span>-<span class="number">0.2</span></span><br></pre></td></tr></table></figure><hr><h2 id="实践建议与经验总结"><a href="#实践建议与经验总结" class="headerlink" title="实践建议与经验总结"></a>实践建议与经验总结</h2><h3 id="🎯-最佳实践"><a href="#🎯-最佳实践" class="headerlink" title="🎯 最佳实践"></a>🎯 最佳实践</h3><ol><li><strong>明确目标</strong>：在写提示词前，先明确你希望模型做什么</li><li><strong>逐步细化</strong>：从简单的提示开始，逐渐添加细节和约束</li><li><strong>测试验证</strong>：用多个示例测试提示词的稳定性</li><li><strong>文档记录</strong>：记录有效的提示词模板，方便复用</li></ol><h3 id="⚠️-常见陷阱"><a href="#⚠️-常见陷阱" class="headerlink" title="⚠️ 常见陷阱"></a>⚠️ 常见陷阱</h3><ol><li><strong>过于复杂</strong>：提示词过长可能导致模型混淆</li><li><strong>缺乏示例</strong>：抽象的指令不如具体的示例有效</li><li><strong>忽略上下文</strong>：没有提供足够的背景信息</li><li><strong>一成不变</strong>：不根据反馈调整提示词</li></ol><h3 id="🚀-进阶技巧"><a href="#🚀-进阶技巧" class="headerlink" title="🚀 进阶技巧"></a>🚀 进阶技巧</h3><ol><li><strong>链式思考</strong>（Chain of Thought）：引导模型展示推理过程</li><li><strong>角色扮演</strong>：让模型扮演特定专家角色</li><li><strong>对比学习</strong>：提供正面和反面示例</li><li><strong>元提示</strong>：使用提示词来优化提示词</li></ol><hr><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>提示词工程是一门需要不断实践和迭代的技艺。随着对模型能力的深入理解和实际应用的增多，你会逐渐形成自己的提示词风格和技巧库。</p><p>记住：好的提示词不是一次写成的，而是在不断的测试和优化中诞生的。保持耐心，享受与AI对话的过程，你会发现这门技艺的无穷魅力。</p><hr><p><em>参考资料：<a href="https://zhuanlan.zhihu.com/p/626966526">吴恩达《ChatGPT Prompt Engineering for Developers》</a></em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LLM </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Prompt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大模型开发学习</title>
+      <link href="/2025/08/03/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2025/08/03/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><strong>写在前面：</strong><br>这是在小红书上看到的一个学习路径，感觉比较实用，所以整理过来，监督自己学习。</p><ul><li>Todo：从头到尾学习一遍。</li></ul></blockquote><hr><h1 id="大模型开发学习路径：从入门到落地"><a href="#大模型开发学习路径：从入门到落地" class="headerlink" title="大模型开发学习路径：从入门到落地"></a>大模型开发学习路径：从入门到落地</h1><h2 id="第一阶段：初识LLM-API使用与Agent探索-✅"><a href="#第一阶段：初识LLM-API使用与Agent探索-✅" class="headerlink" title="第一阶段：初识LLM - API使用与Agent探索   ✅"></a>第一阶段：初识LLM - API使用与Agent探索   ✅</h2><p><strong>核心目标</strong>：了解LLM能做什么，学会基础使用</p><p>这个阶段主要是<strong>把LLM当作API来使用</strong>，重点掌握：</p><ul><li>提示词工程（Prompt Engineering）- 这是基础中的基础 </li><li>Agent的基本概念和应用场景</li><li>了解不同模型的特性和适用场景</li></ul><p><strong>推荐资源</strong>：吴恩达的相关课程讲得非常好，强烈推荐。这个阶段不要急于深入技术细节，先培养对LLM能力边界的直觉。<br><a href="/2025/08/03/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%AC%94%E8%AE%B0/">这里可以看到我的个人笔记</a></p><h2 id="第二阶段：深入原理-模型架构与微调技术"><a href="#第二阶段：深入原理-模型架构与微调技术" class="headerlink" title="第二阶段：深入原理 - 模型架构与微调技术"></a>第二阶段：深入原理 - 模型架构与微调技术</h2><p><strong>核心目标</strong>：理解LLM的工作原理，具备模型部署能力</p><p>进入这个阶段，你需要学习：</p><ul><li><strong>Transformer模型</strong>的基本原理和注意力机制</li><li><strong>模型微调技术</strong>：SFT（Supervised Fine-tuning）等</li><li><strong>开发框架</strong>：PyTorch的使用</li><li><strong>模型部署</strong>：利用Hugging Face部署开源模型</li><li><strong>API参数理解</strong>：top-k、temperature等参数的实际含义</li></ul><p>这个阶段会让你从”会用”上升到”理解”，为后续的深入应用打下坚实基础。</p><h2 id="第三阶段：知识增强-RAG技术栈深入"><a href="#第三阶段：知识增强-RAG技术栈深入" class="headerlink" title="第三阶段：知识增强 - RAG技术栈深入"></a>第三阶段：知识增强 - RAG技术栈深入</h2><p><strong>核心目标</strong>：解决模型知识局限性，提升输出质量</p><p>当你开始做Agent落地时会发现，单纯的LLM往往知识不够用，这时就需要<strong>RAG（检索增强生成）技术</strong>：</p><ul><li>向量数据库的选择和使用</li><li>文档切分和索引策略</li><li>检索算法优化</li><li>知识图谱集成</li></ul><p>RAG的技术栈相当庞大，需要耐心学习。可以关注我主页的相关介绍，有更详细的技术分享。</p><h2 id="第四阶段：工程实践-流式编程与性能优化"><a href="#第四阶段：工程实践-流式编程与性能优化" class="headerlink" title="第四阶段：工程实践 - 流式编程与性能优化"></a>第四阶段：工程实践 - 流式编程与性能优化</h2><p><strong>核心目标</strong>：构建高性能的AI应用</p><p>这个阶段重点关注<strong>用户体验</strong>，特别是响应速度：</p><ul><li><strong>编程语言选择</strong>：推荐Python（AI生态最友好）、Go、TypeScript等</li><li><strong>流式编程</strong>：实现实时响应，提升用户体验</li><li><strong>性能优化</strong>：降低延迟，提高并发处理能力</li></ul><p>记住：Agent产品的体验很重要，而体验的核心往往就是响应时间。</p><h2 id="第五阶段：产品思维-AI技术的业务落地"><a href="#第五阶段：产品思维-AI技术的业务落地" class="headerlink" title="第五阶段：产品思维 - AI技术的业务落地"></a>第五阶段：产品思维 - AI技术的业务落地</h2><p><strong>核心目标</strong>：将技术转化为实际价值</p><p>最后也是最重要的阶段：</p><ul><li><strong>关注行业大牛</strong>和优秀开源项目，学习最佳实践</li><li><strong>结合工作场景</strong>，思考AI如何解决实际问题</li><li><strong>培养产品思维</strong>：技术是服务业务的，要有全局视角</li></ul><p><strong>核心理念</strong>：我们做的是AI应用层，不是底层模型。有产品思维的技术人员，在AI时代会更有竞争力。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LLM </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 开发 </tag>
+            
+            <tag> Agent </tag>
+            
+            <tag> RAG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关西之旅</title>
+      <link href="/2025/08/03/%E5%85%B3%E8%A5%BF%E4%B9%8B%E6%97%85/"/>
+      <url>/2025/08/03/%E5%85%B3%E8%A5%BF%E4%B9%8B%E6%97%85/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><strong>写在前面：</strong><br>这是3月底从日本回来后写的行程，现在才上传到博客。这也是我第一次一个人独自旅行，独自出国。</p><ul><li>Todo：整理照片，加到相册里</li></ul></blockquote><hr><p>八天七夜的关西之旅终于结束了，从京都的古朴宁静到大阪的热闹繁华，每一天都有不同的惊喜。这次旅行让我对日本有了更深的了解，也积累了不少实用的经验，在这里分享记录。</p><h2 id="Day-1：初到京都"><a href="#Day-1：初到京都" class="headerlink" title="Day 1：初到京都"></a>Day 1：初到京都</h2><p><strong>交通路线</strong>：关西机场 → 京都站 → 四条（住宿地）</p><p>第一次踏上日本的土地，心情既兴奋又紧张。关西机场并不算大，但高峰期出关确实需要一些耐心。</p><p><strong>交通建议</strong>：</p><ul><li><strong>强烈推荐Haruka特急</strong>：从关西机场直达京都，约1小时车程，最晚班次22点多</li><li><strong>购买电子票</strong>：扫码进站很方便，避免排队换票</li><li><strong>座位预订</strong>：当天购买可预约指定席，否则只能坐自由席（高峰期可能无座）</li></ul><p>到达京都站后，需要换乘地铁前往四条。第一次在日本坐地铁，标识很清楚，配合Google地图完全没问题。到酒店安顿好已经是晚上，明天正式开始京都之旅。</p><h2 id="Day-2-3：深度游览京都"><a href="#Day-2-3：深度游览京都" class="headerlink" title="Day 2-3：深度游览京都"></a>Day 2-3：深度游览京都</h2><p><strong>主要景点</strong>：锦市场、清水寺、二年坂三年坂、八坂神社、鸭川、岚山、伏见稻荷大社</p><h3 id="Day-2：古都漫步"><a href="#Day-2：古都漫步" class="headerlink" title="Day 2：古都漫步"></a>Day 2：古都漫步</h3><p>原计划早起游览，结果因为私事耽误了时间，不过这反而让我体验到了更悠闲的京都节奏。</p><p><strong>上午</strong>：在三条附近的<strong>锦市场</strong>闲逛，这里被称为”京都的厨房”，各种传统小食让人眼花缭乱。中午偶然发现一家小店门口排着队，当地人和游客各占一半，看起来很有人气就加入了队伍。</p><p><strong>下午</strong>：坐公交到仁王门，步行至<strong>清水寺</strong>。从清水寺的木制阳台俯瞰京都市景，确实震撼。随后漫步<strong>二年坂三年坂</strong>，石板路和传统建筑让人仿佛穿越回古代。途经<strong>八坂神社</strong>，最后到达<strong>河源町</strong>和<strong>鸭川</strong>。</p><p><strong>晚餐</strong>：在鸭川附近品尝了传说中的大阪烧，虽然网上评分很高，但个人觉得口味一般，可能是期望太高了。不过鸭川边的夜景很美，值得停留。</p><h3 id="Day-3：岚山与千本鸟居"><a href="#Day-3：岚山与千本鸟居" class="headerlink" title="Day 3：岚山与千本鸟居"></a>Day 3：岚山与千本鸟居</h3><p><strong>上午</strong>：坐JR到<strong>嵯峨岚山站</strong>。本想坐著名的岚山小火车，但没有提前预约（建议提前一个月预约），只能徒步游览。虽然有些遗憾，但步行也有不同的乐趣，各个小景点需要单独付费，记得准备现金。<strong>渡月桥</strong>附近人流如织，各种小店值得一逛。</p><p><strong>下午</strong>：返回后稍作休息，前往<strong>伏见稻荷大社</strong>看千本鸟居。可惜这次时间不够没能去成，留个念想下次再来。</p><p><strong>晚上</strong>：在京都站附近的<strong>有都八喜</strong>和<strong>堂吉诃德</strong>购物，体验日本的24小时购物文化。</p><h2 id="Day-4：三城巡游"><a href="#Day-4：三城巡游" class="headerlink" title="Day 4：三城巡游"></a>Day 4：三城巡游</h2><p><strong>路线</strong>：京都 → 宇治 → 奈良 → 大阪</p><p>这一天的行程最为紧凑，横跨三个城市，但每一站都让人印象深刻。</p><p><strong>实用贴士</strong>：前一晚预约了行李邮寄服务直送大阪酒店，轻装上阵很舒服。</p><h3 id="宇治：抹茶之乡"><a href="#宇治：抹茶之乡" class="headerlink" title="宇治：抹茶之乡"></a>宇治：抹茶之乡</h3><p><strong>交通</strong>：京都站 → JR宇治站（约20分钟）</p><p>一出宇治站就看到了大名鼎鼎的<strong>中村藤吉</strong>，先取号再去逛<strong>平等院</strong>是明智的选择。平等院确实精美，特别是凤凰堂的倒影。回到中村藤吉时正好排到，抹茶甜品名不虚传，那种苦中带甜的层次感让人难忘。</p><h3 id="奈良：与小鹿的约会"><a href="#奈良：与小鹿的约会" class="headerlink" title="奈良：与小鹿的约会"></a>奈良：与小鹿的约会</h3><p><strong>交通</strong>：宇治站 → JR奈良站 → 公交到奈良公园</p><p><strong>奈良公园</strong>的小鹿真的很有灵性，会鞠躬要鹿饼！不过要小心被”围攻”，它们真的很”霸道”。<strong>春日大社</strong>的千座石灯笼很壮观，<strong>若草山</strong>看日落更是浪漫至极。</p><h3 id="大阪：繁华夜生活"><a href="#大阪：繁华夜生活" class="headerlink" title="大阪：繁华夜生活"></a>大阪：繁华夜生活</h3><p><strong>交通</strong>：近铁奈良站 → 大阪难波站（注意不是JR奈良站！）</p><p><strong>血泪教训</strong>：我坐错了车，本来特急30分钟的路程，结果坐慢车花了一个多小时。记住要坐<strong>近铁特急</strong>！</p><p>到达难波后，<strong>心斋桥</strong>和<strong>道顿堀</strong>的霓虹灯世界瞬间把我从古朴的奈良拉回现代都市。章鱼小丸子、大阪烧、拉面… 真正的美食天堂！</p><h2 id="Day-5：大阪市区巡礼"><a href="#Day-5：大阪市区巡礼" class="headerlink" title="Day 5：大阪市区巡礼"></a>Day 5：大阪市区巡礼</h2><p><strong>主要景点</strong>：大阪城公园、黑门市场、通天阁、梅田购物</p><p>睡到自然醒的一天！说实话，这一天的景点都比较常规，网上有很多一日游攻略，很快就能转完。</p><p><strong>大阪城公园</strong>：典型的日式城堡，但重建后少了些历史厚重感<br><strong>黑门市场</strong>：海鲜新鲜，价格合理，推荐尝试<br><strong>通天阁</strong>：大阪的地标，登顶看看市景还不错</p><p><strong>夜生活推荐</strong>：</p><ul><li><strong>東洋劇場</strong>：如果住梅田附近，可以去看看表演</li><li><strong>飛田新地</strong>：… 见见世面（你懂的）</li></ul><p>这一天整体比较轻松，主要是为了调整状态，准备后面的行程。</p><h2 id="Day-6：神户一日游"><a href="#Day-6：神户一日游" class="headerlink" title="Day 6：神户一日游"></a>Day 6：神户一日游</h2><p><strong>主要景点</strong>：有马温泉、美利坚公园、南京町、须磨海岸</p><p><strong>交通</strong>：梅田 → 有马温泉（阪神+神户铁路，需换乘2次）</p><p><strong>强烈建议</strong>：如果可能，在神户住一晚，或者预定温泉酒店的一泊二食套餐。</p><h3 id="有马温泉：放松身心"><a href="#有马温泉：放松身心" class="headerlink" title="有马温泉：放松身心"></a>有马温泉：放松身心</h3><p>作为日本三大古温泉之一，有马温泉确实名不虚传。虽然地方不大，但氛围很棒。特别推荐<strong>碳酸温泉</strong>，那种细腻的气泡感很特别，票价也不算贵。</p><h3 id="神户市区：异国风情"><a href="#神户市区：异国风情" class="headerlink" title="神户市区：异国风情"></a>神户市区：异国风情</h3><p><strong>南京町</strong>：神户的中华街，虽然商业气息浓厚，但中式建筑很有特色<br><strong>福原</strong>：神户的繁华地带，适合闲逛<br><strong>须磨海岸</strong>：如果时间充裕强烈推荐，海景很美<br><strong>美利坚公园</strong>：看日落的绝佳地点，神户港的夜景让人沉醉</p><p>晚上坐阪神电车回到大阪梅田，结束充实的神户一日游。</p><h2 id="Day-7：USJ圆梦之旅"><a href="#Day-7：USJ圆梦之旅" class="headerlink" title="Day 7：USJ圆梦之旅"></a>Day 7：USJ圆梦之旅</h2><p><strong>环球影城</strong>：一整天的主题公园体验</p><p><strong>入园时间</strong>：9:30（D类门票）<br><strong>重要提醒</strong>：想玩马里奥园区一定要顶门进园！我预约到了20:20的入园时间，但后来才知道下午6点后基本玩不到园区内的项目了。</p><p>USJ的攻略网上很多，我就不详细展开了。总的来说，如果能早起当然最好，但实在起不来也不用太焦虑。园区内的哈利波特世界、侏罗纪公园等主题区都很精彩，即使没玩到马里奥也不算遗憾。</p><p><strong>个人感受</strong>：作为一个成年人在主题公园里疯玩一天，那种纯粹的快乐真的很难得。建议穿舒适的鞋子，一天下来真的很累。</p><h2 id="Day-8：告别关西"><a href="#Day-8：告别关西" class="headerlink" title="Day 8：告别关西"></a>Day 8：告别关西</h2><p><strong>上午</strong>：最后的购物时光<br><strong>下午</strong>：返程</p><h3 id="梅田最后购物"><a href="#梅田最后购物" class="headerlink" title="梅田最后购物"></a>梅田最后购物</h3><p><strong>LUCUA 1100</strong>和<strong>阪急百货</strong>：梅田地区的高端购物中心，品牌齐全，适合最后采购</p><p>由于下午5点的航班，只有上午的时间购物，有些匆忙。建议如果购物需求较大，可以把购物安排在前几天。</p><h3 id="返程交通"><a href="#返程交通" class="headerlink" title="返程交通"></a>返程交通</h3><p><strong>重要建议</strong>：从梅田到关西机场选择<strong>机场巴士</strong>而不是Haruka！</p><p>我选择了2点左右从梅田出发的机场巴士，不到3点就到了T1航站楼。Haruka虽然快，但容易因为人身事故（卧轨）导致晚点，机场巴士更稳妥。</p><p>高峰期建议提前1小时到机场，我3点到机场很快就完成了安检，剩下的时间就是免税店买买买了。</p><hr><h2 id="旅行总结"><a href="#旅行总结" class="headerlink" title="旅行总结"></a>旅行总结</h2><p>八天的关西之旅让我对日本有了全新的认识。从京都的古朴典雅到大阪的现代繁华，从奈良的自然和谐到神户的异国风情，每个城市都有自己独特的魅力。</p><p><strong>最大的收获</strong>：</p><ul><li>日本的服务意识和细节把控确实让人印象深刻</li><li>公共交通系统复杂但高效，Google地图是最好的助手</li><li>提前做功课很重要，但也要为意外惊喜留出空间</li></ul><p><strong>下次想改进的地方</strong>：</p><ul><li>神户应该住一晚，时间太匆忙</li><li>USJ要顶门进园，马里奥园区不容错过</li><li>购物时间安排可以更合理</li></ul><p>总的来说，这是一次非常充实和难忘的旅行。关西，我们下次再见！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 旅游 </tag>
+            
+            <tag> 日本 </tag>
+            
+            <tag> 大阪 </tag>
+            
+            <tag> 京都 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>这里是鸽非凡</title>
+      <link href="/2025/07/29/The-first/"/>
+      <url>/2025/07/29/The-first/</url>
+      
+        <content type="html"><![CDATA[<h1 id="重新开始"><a href="#重新开始" class="headerlink" title="重新开始"></a>重新开始</h1><p>这不是我第一次写博客。</p><p>2020年大二，技术世界刚刚向我敞开大门。看着同学们搭建的精美博客，我也想拥有一个属于自己的角落。和<a href="https://gin-zc.github.io/">Gin</a>一起摸索，从零开始搭建。虽然内容不多，但看着页面成功运行的那一刻，心里满是成就感。</p><p>2022年考研结束，西安封城。被困在宿舍的日子里，除了翻看毕设资料，就是重新规划博客的想法。想要养成写作的习惯，记录思考的过程。但计划还没开始，身体就出了问题——腰痛让我在床上躺了半年。好在考研的结果还算满意，这成了那段灰暗日子里唯一的光亮。</p><p>康复后，和本科同学<a href="https://2015wan.github.io/">wh</a>、<a href="https://wd-2711.tech/">wd-2711</a>的友谊更深了。共同经历让我们从普通同学变成真正的朋友。有时候，困难也会带来意想不到的收获。</p><p>现在研究生毕业了，我重新搭建这个博客。不只是为了记录技术学习，更想记录生活本身。那些停下来的日子教会我：坚持不是一直向前，而是跌倒后还能重新站起来。</p><p>这里会有技术笔记，也会有生活感悟。有代码的严谨，也有日常的琐碎。重新开始敲下这些文字时，我知道这次不一样了——不再是一时兴起，而是真正想要坚持下去的决定。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2025/07/22/hello-world/"/>
+      <url>/2025/07/22/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
